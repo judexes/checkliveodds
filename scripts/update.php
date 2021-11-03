@@ -2,29 +2,39 @@
 
 require_once("db_conn.php");
 
-// Read QUERY
-
-// $query = "SELECT id, home_team, away_team, country, competition, bothhalves_yes, bothhalves_no, exact_number";
-// $db_conn->query($query)
-
-// Attempt select query execution
-$sql = "SELECT * FROM `main` WHERE id=4";
-if($result = mysqli_query($db_conn, $sql)){
-    if(mysqli_num_rows($result) > 0){
-
-        $row = mysqli_fetch_array($result);
-        echo $row['country'];
-
-        // Free result set
-        mysqli_free_result($result);
-    } else{
-        echo "No records matching your query were found.";
-    }
-} else{
-    echo "ERROR: Could not able to execute $sql. " . mysqli_error($db_conn);
-}
+$home_team = $_POST['home_team'];
+$away_team = $_POST['away_team'];
+$country = $_POST['country'];
+$competition = $_POST['competition'];
+$bothhalves_yes = $_POST['bothhalves_yes'];
+$bothhalves_no = $_POST['bothhalves_no'];
+$exact_number = $_POST['exact_number'];
+$dateModified = $_POST['dateModified'];
  
-// Close connection
-mysqli_close($db_conn);
+// UPDATE QUERY
+$query = "UPDATE main set home_team ='$home_team', away_team ='$away_team', country ='$country', competition ='$competition', bothhalves_yes ='$bothhalves_yes', bothhalves_no ='$bothhalves_no', exact_number ='$exact_number', dateModified ='$dateModified' WHERE id='" . $_POST["id"] . "'";
+
+
+if(
+    (!isset($home_team) || trim($home_team) == '') ||
+    (!isset($away_team) || trim($away_team) == '') ||
+    (!isset($country) || trim($country) == '') ||
+    (!isset($competition) || trim($competition) == '') ||
+    (!isset($bothhalves_yes) || trim($bothhalves_yes) == '') ||
+    (!isset($bothhalves_no) || trim($bothhalves_no) == '') ||
+    (!isset($exact_number) || trim($exact_number) == '') ||
+    (!isset($dateModified) || trim($dateModified) == '') ) {
+   echo "You did not fill out the required fields.";
+} else {
+    if ($db_conn->query($query) === TRUE) {
+        echo "Record UPDATED succesfully";
+        header("Location: ../");
+        exit();
+    } else {
+        echo "Error:" . $query. "<br>" . $db_conn->error;
+    }
+}
+
+
 
 ?>

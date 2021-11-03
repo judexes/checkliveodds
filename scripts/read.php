@@ -35,7 +35,7 @@ if($result = mysqli_query($db_conn, $sql)){
                 echo "<td>" . $row['bothhalves_yes'] . "</td>";
                 echo "<td>" . $row['bothhalves_no'] . "</td>";
                 echo "<td>" . $row['exact_number'] . "</td>";
-                echo "<td>" . $row['id'] . "</td>";
+                echo "<td><a href='update.php?id= ".$row['id']." '> Edit </a></td>";
                 echo "<td><a href='scripts/delete.php?del= ".$row['id']." '> Delete </a></td>";
             echo "</tr>";
         }
