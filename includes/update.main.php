@@ -14,7 +14,10 @@
 								if(mysqli_num_rows($result) > 0){
 
 									$row = mysqli_fetch_array($result);
-									echo $row['country'];
+
+									// 
+									$currentDateTime = date('Y-m-d H:i:s');
+									
 						?>
 
 
@@ -36,13 +39,13 @@
 											<div class="col-md-3">
 												<div class="form-group">
 													<span class="form-label">COUNTRY</span>
-													<input name="country" class="form-control" type="text">
+													<input name="country" class="form-control" type="text" value="<?php echo $row['country']; ?>">
 												</div>
 											</div>
 											<div class="col-md-3">
 												<div class="form-group">
 													<span class="form-label">COMPETITION</span>
-													<input name="competition" class="form-control" type="text">
+													<input name="competition" class="form-control" type="text" value="<?php echo $row['competition']; ?>">
 												</div>
 											</div>
 										</div>
@@ -50,13 +53,13 @@
 											<div class="col-md-3">
 												<div class="form-group">
 													<h6 class="small-text">BOTH HALVES TO BE WON BY DIFFERENT TEAMS - YES</h6>
-													<input name="bothhalves_yes" class="form-control" type="number" step=".01" id="bothHalvesDiffTeamsYes" name="bothHalvesDiffTeamsYes" min="3.5" max="9" required>
+													<input name="bothhalves_yes" class="form-control" type="number" step=".01" min="3.5" max="9" required value="<?php echo $row['bothhalves_yes']; ?>">
 												</div>
 											</div>
 											<div class="col-md-3">
 												<div class="form-group">
 													<h6 class="small-text">BOTH HALVES TO BE WON BY DIFFERENT TEAMS - NO</h6>
-													<input name="bothhalves_no" class="form-control" type="number" step=".01" id="bothHalvesDiffTeamsNo" name="bothHalvesDiffTeamsNo" min="1" max="2" required>
+													<input name="bothhalves_no" class="form-control" type="number" step=".01" id="bothHalvesDiffTeamsNo" name="bothHalvesDiffTeamsNo" min="1" max="2" required value="<?php echo $row['bothhalves_no']; ?>">
 												</div>
 											</div>
 										</div>
@@ -64,8 +67,8 @@
 											<div class="col-md-3">
 												<div class="form-group">
 													<h6 class="small-text"><br>EXACT NUMBER <br></h6>
-													<input name="exact_number" class="form-control" type="number" step=".01" id="bothHalvesDiffTeamsYes" name="bothHalvesDiffTeamsYes" min="1" max="2" required>
-													<input type="text" name="entrydate" value="<?php echo 'date("Y-m-d H:i:s")';?>" class="">
+													<input name="exact_number" class="form-control" type="number" step=".01" min="1" max="2" required value="<?php echo $row['exact_number']; ?>">
+													<input type="text" name="dateModified" value="<?php echo $currentDateTime;?>" class="">
 												</div>
 											</div>
 										</div>
@@ -78,7 +81,7 @@
 			
 													<input type="hidden" name="id" value="<?php echo $row['id']; ?>"/>
 													
-													<button class="submit-btn">Save</button>
+													<button class="submit-btn">Update</button>
 			
 												</div>
 											</div>
