@@ -9,25 +9,25 @@
 								<div class="col-md-3">
 									<div class="form-group">
 										<span class="form-label">HOME</span>
-										<input name="home_team" class="form-control" type="text" autocomplete="on">
+										<input name="home_team" class="form-control" type="text" autocomplete="on" required>
 									</div>
 								</div>
 								<div class="col-md-3">
 									<div class="form-group">
 										<span class="form-label">AWAY</span>
-										<input name="away_team" class="form-control" type="text">
+										<input name="away_team" class="form-control" type="text" required>
 									</div>
 								</div>
 								<div class="col-md-3">
 									<div class="form-group">
 										<span class="form-label">COUNTRY</span>
-										<input name="country" class="form-control" type="text">
+										<input name="country" class="form-control" type="text" required>
 									</div>
 								</div>
 								<div class="col-md-3">
 									<div class="form-group">
 										<span class="form-label">COMPETITION</span>
-										<input name="competition" class="form-control" type="text">
+										<input name="competition" class="form-control" type="text" required>
 									</div>
 								</div>
 							</div>
@@ -35,13 +35,13 @@
 								<div class="col-md-3">
 									<div class="form-group">
                                         <h6 class="small-text">BOTH HALVES TO BE WON BY DIFFERENT TEAMS - YES</h6>
-										<input name="bothhalves_yes" class="form-control" type="number" step=".01" id="bothHalvesDiffTeamsYes" name="bothHalvesDiffTeamsYes" min="3.5" max="9" required>
+										<input name="bothhalves_yes" class="form-control" type="number" step=".01" max="9" required>
 									</div>
 								</div>
 								<div class="col-md-3">
 									<div class="form-group">
                                         <h6 class="small-text">BOTH HALVES TO BE WON BY DIFFERENT TEAMS - NO</h6>
-										<input name="bothhalves_no" class="form-control" type="number" step=".01" id="bothHalvesDiffTeamsNo" name="bothHalvesDiffTeamsNo" min="1" max="2" required>
+										<input name="bothhalves_no" class="form-control" type="number" step=".01"  min="1" max="2" required>
 									</div>
 								</div>
 							</div>
